@@ -45,6 +45,7 @@ const Destination = () => {
               { toggle?<div className=" m-1">
                 <div className="bg-danger  p-2 text-center">
                     <p>{address.PickFrom}</p>
+                    <p> <b>To</b> </p>
                     <p>{address.PickTo}</p>
                 </div>
                 <div className=" travelWayControl ">

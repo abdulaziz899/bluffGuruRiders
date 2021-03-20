@@ -55,7 +55,6 @@ const Login = () => {
               setUser(newUserInfo);
               setLogInUser(googleSignInUser)
               history.replace(from);
-              
             }).catch((error) => {
               const newUserInfo={...user};
               newUserInfo.success=false;
@@ -87,7 +86,7 @@ const handleBlur=(e)=>{
 }
 const handleSubmit=(e)=>{
   if ( newUser && user.email && user.password) {
-    firebase.auth().createUserWithEmailAndPassword(user.email,user.name , user.password)
+    firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
           .then((userCredential) => {
             const newUserInfo={...user};
             newUserInfo.error="";
@@ -95,6 +94,8 @@ const handleSubmit=(e)=>{
             newUserInfo[e.target.name]=e.target.value;
             setUser(newUserInfo);
             setLogInUser(newUserInfo);
+            updateUserName(user.name);
+            console.log(logInUser.name);
           })
           .catch((error) => {
             const newUserInfo={...user};
@@ -107,13 +108,21 @@ const handleSubmit=(e)=>{
   if (!newUser && user.email && user.password) {
           firebase.auth().signInWithEmailAndPassword(user.email,user.password)
         .then((userCredential) => {
-           const  user = userCredential.user;
+          const {displayName,email,password,error}=userCredential.user;
+          const  emailSignInUser ={
+            name:displayName,
+            email:email,
+            password:password,
+            success:true,
+          }
             const newUserInfo={...user};
             newUserInfo.error="";
             newUserInfo.success=true;
             setUser(newUserInfo);
-            setLogInUser(newUserInfo);
-            
+            setLogInUser(emailSignInUser);
+            console.log("ans :",emailSignInUser);
+            history.replace(from);
+            console.log(emailSignInUser.name);
         })
         .catch((error) => {
           const newUserInfo={...user};
@@ -124,7 +133,25 @@ const handleSubmit=(e)=>{
   }
   e.preventDefault();
 }
+const updateUserName=(name)=>{
+  var user = firebase.auth().currentUser;
 
+      user.updateProfile({
+        displayName:name,
+
+      }).then(function() {
+        const newUserInfo={...user};
+        newUserInfo.error="";
+        newUserInfo.success=true;
+        setUser(newUserInfo);
+        setLogInUser(newUserInfo);
+      }).catch(function(error) {
+        const newUserInfo={...user};
+        newUserInfo.success=false;
+        newUserInfo.error=error.message;
+        setUser(newUserInfo);
+      });
+      }
 //facebook log in
 const handleFacebookSignIn=()=>{
   firebase

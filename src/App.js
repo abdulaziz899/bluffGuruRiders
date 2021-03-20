@@ -6,16 +6,15 @@ import Destination from './components/Destination/Destination';
 import Travel from './components/Travel/Travel';
 import Login from './components/Login/Login';
 import Header from './components/Header/Header';
-import { createContext, useEffect } from 'react';
+import { createContext} from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Location from './components/Location/Location';
-import FakeData from "./FakeData/FakeData.json"
+
 export const userContext=createContext();
 function App() {
   const [logInUser,setLogInUser]=useState({});
   const [traveling,setTraveling]=useState([]);
-  console.log(traveling);
   return (
     <div  >
       <userContext.Provider value={[logInUser,setLogInUser],[traveling,setTraveling]}>
