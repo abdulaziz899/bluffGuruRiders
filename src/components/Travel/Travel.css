@@ -1,0 +1,29 @@
+.travelDetails{
+    width: 250px;
+    height: 250px;
+    background-color: rgb(206, 224, 224);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px rgb(172, 175, 172);
+}
+.travelDetails img {
+    width: 60%;
+    margin-top: 50px;
+    height: 60%;
+}
+.travelContainer{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+}
+.travelDetailsContainer{
+    margin-top: 200px;
+}
+@media(width:600px){
+    .travelContainer{
+        grid-template-columns: auto;
+    }
+    .travelDetailsContainer{
+        margin-top: 20px;
+    }
+}

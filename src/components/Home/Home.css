@@ -1,0 +1,37 @@
+.headerContainer{
+    width: 97%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.riderLogo {
+    width: 50%;
+}
+.headerDetails p {
+    padding: 15px;
+    font-size: 25px;
+    text-decoration: none;
+}
+.headerDetails{
+    display: flex;
+    width: 50%;
+    background-color: aqua;
+}
+.navbar{
+    width: 100%;
+}
+
+@media(width:600px){
+    .riderLogo {
+        width: 50%;
+    }
+    .headerContainer{
+        display: block;
+    }
+    .headerDetails{
+        display: block;
+    }
+    .headerDetails p {
+        padding: 5px;
+        font-size: 15px;
+    }
+}

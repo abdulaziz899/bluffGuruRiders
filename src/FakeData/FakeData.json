@@ -1,0 +1,21 @@
+[{
+    "name": "Bike",
+    "address": "065 Meadow Valley Junction",
+    "phone": 8801776978991,
+    "img":"https://cdn.autoportal.com/bp-v3/img/models/c3/c/2.jpg"
+  }, {
+    "name": "Car",
+    "address": "06091 Huxley Park",
+    "phone": 8801789687191,
+    "img":"https://www.showcardeals.com/assets/images/trending-car-img-1.jpg"
+  }, {
+    "name": "Bus",
+    "address": "68741 Green Ridge Way",
+    "phone": 8801589387124,
+    "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG7ZmZXXkmPiZWqEmBTtolQhW56DVWucNZ-g&usqp=CAU"
+  }, {
+    "name": "Train",
+    "address": "954 Sunfield Hill",
+    "phone": 88801377869199,
+    "img":"https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2020/07/vande-bharat-train-rep-1-1594457119.jpg"
+  }]
