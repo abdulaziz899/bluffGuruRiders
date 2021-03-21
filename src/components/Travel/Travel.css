@@ -17,6 +17,7 @@
     grid-template-columns: auto auto auto auto;
     grid-gap: 10px;
     padding-top: 200px;
+    margin: 0px 60px 0px;
 }
 @media(width:600px){
     .travelDetailsContainer{

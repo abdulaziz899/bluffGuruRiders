@@ -158,11 +158,19 @@ const handleFacebookSignIn=()=>{
         .auth()
         .signInWithPopup(facebookProvider)
         .then((result) => {
+          const {displayName,email,password,error}=result.user;
+              const  facebookSignInUser ={
+                name:displayName,
+                email:email,
+                password:password,
+                error:error,
+                success:true,
+              }
             const newUserInfo={...user};
             newUserInfo.error="";
             newUserInfo.success=true;
             setUser(newUserInfo);
-            setLogInUser(newUserInfo);
+            setLogInUser(facebookSignInUser);
             history.replace(from);
         })
         .catch((error) => {
@@ -203,12 +211,11 @@ const handleFacebookSignIn=()=>{
             {user.success && <p style={{color:'green'}}>user {newUser?" create":"login"} success full </p> }
             <p>or</p>
             <Button className=" py-3" onClick={handleGoogleSignIn} variant="primary rounded-pill" size="lg" block>
-            <FontAwesomeIcon className="fs-1 " icon={faGoogle} /> Continue with Google 
+            <FontAwesomeIcon className="fs-1 mx-5" icon={faGoogle} /> Continue with Google 
             </Button>
-            <Button  className=" py3" onClick={handleFacebookSignIn} variant="primary rounded-pill " size="lg" block>
-            <FontAwesomeIcon className="fs-1 " icon={faFacebook} />  Continue with Facebook
+            <Button  className=" py-3" onClick={handleFacebookSignIn} variant="primary rounded-pill " size="lg" block>
+            <FontAwesomeIcon className="fs-1 mx-5" icon={faFacebook} />  Continue with Facebook
             </Button>
-            
         </div>
         </div>
     );
