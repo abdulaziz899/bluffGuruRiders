@@ -11,7 +11,7 @@ const Header = () => {
             <Navbar className="navbar" bg="light" variant="dark ">
                 <div className="headerContainer">
                     <div >
-                        <Navbar.Brand ><img className="riderLogo" src={RidersLogo} alt=""/> </Navbar.Brand>
+                        <Navbar.Brand ><img className="riderLogo" src={RidersLogo} alt=""/></Navbar.Brand>
                     </div>
                     <div className="headerDetails">
                             <p><Link to="/home">Home</Link></p>

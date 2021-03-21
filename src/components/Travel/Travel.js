@@ -13,12 +13,10 @@ const Travel = (props) => {
             console.log("new ans",cart);
         }
     return (
-        <div className="travelDetailsContainer">
             <div onClick={()=>handleTraveling(name)} className="travelDetails">
                 <img src={img} alt=""/>
                 <h2>{name}</h2>
             </div>
-        </div>
     );
 };
 

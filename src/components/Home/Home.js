@@ -12,11 +12,14 @@ const Home = () => {
         setTraveling(FakeData);
     }, [])
     return (
-                <div style={{backgroundSize:"cover",width:"100%",height:"150vh" ,backgroundPosition :"center",backgroundRepeat:'no-repeat', backgroundImage: `url(${backgroundImg })`}} className="travelContainer">
-                     {
-                            traveling.map(data=><Travel key={data.name}  data={data}></Travel>)
+        <div  style={{backgroundSize:"cover",width:"100%",height:"150vh" ,backgroundPosition :"center",backgroundRepeat:'no-repeat', backgroundImage: `url(${backgroundImg })`}} className="travelContainer">
+                <div className="travelDetailsContainer">
+                    {
+                        traveling.map(data=> <div><Travel key={data.name}  data={data}></Travel></div> )
                     }
                 </div>
+
+        </div>
         
     );
 };

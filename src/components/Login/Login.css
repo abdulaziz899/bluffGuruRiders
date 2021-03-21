@@ -2,10 +2,11 @@
     text-align: center;
     padding-top: 50px;
     width: 100%;
-    background-color: rgb(148, 159, 168);
+    background-color: rgb(199, 205, 209);
     box-shadow: 10px 10px 0px rgb(223, 219, 216);
     margin: 0px auto;
     padding-bottom: 50px;
+    border-radius: 20px;
 }
 .loginContainer input{
     width: 50%;

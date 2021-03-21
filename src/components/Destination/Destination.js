@@ -1,16 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import mapImg from "../../images/Map.png";
 import peopleIcon from "../../images/peopleicon.png";
 import "./Destination.css";
 import FakeData from "../../FakeData/FakeData.json"
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker"
 const Destination = () => {
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    console.log(selectedDate);
     const {travelingWayName}=useParams();
     const travelWay=FakeData.find(travel=>travel.name===travelingWayName);
     const [toggle,setToggle]=useState(false)
     const [address,setAddress]=useState({
         PickFrom:"",
-        PickTo:""
+        PickTo:"",
     })
     // const { register, handleSubmit, watch, errors } = useForm();
     const handleSubmit = (e) =>{
@@ -44,9 +48,8 @@ const Destination = () => {
             <div>
               { toggle?<div className=" m-1">
                 <div className="bg-danger  p-2 text-center">
-                    <p>{address.PickFrom}</p>
-                    <p> <b>To</b> </p>
-                    <p>{address.PickTo}</p>
+                    <p>{address.PickFrom} <b>To</b> {address.PickTo} </p>
+                    <p>{selectedDate.toString()}</p>
                 </div>
                 <div className=" travelWayControl ">
                     <img src={travelWay.img} alt=""/>
@@ -73,6 +76,8 @@ const Destination = () => {
                     <input onBlur={handleBlur} name="PickFrom" required className="w-100"   placeholder="Pick From" /> <br/>
                     <p>Pick To</p>
                     <input onBlur={handleBlur} name="PickTo" required className="w-100"   placeholder="Pick To"/> <br/>
+                    <span> form :</span> <DatePicker onChange={date=>setSelectedDate(date)} selected={selectedDate}/>  <br/>
+                    <span>  to : </span> <DatePicker onChange={date=>setSelectedDate(date)} selected={selectedDate}/> <br/>
                     <input type="submit" onClick={()=>setToggle(!toggle)} value="submit" name="" id=""/>
                 </form>
             </div> }
@@ -81,6 +86,7 @@ const Destination = () => {
                 
                 <img className="mapControl" src={mapImg} alt=""/>
             </div>
+            
         </div>
     );
 };

@@ -26,7 +26,6 @@ function App() {
             <PrivateRoute path="/destination/:travelingWayName"><Destination></Destination></PrivateRoute>
             <PrivateRoute  path="/destination"><Destination></Destination></PrivateRoute>
             <Route path="/travel"><Travel></Travel></Route>
-            <Route path="/location"><Location></Location></Route>
             <Route path="/login"><Login></Login></Route>
           </Switch>
       </Router>
